@@ -12,6 +12,16 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Project and solution files
+*.csproj
+*.sln
+
+# Config files
+*.config
+
+# Properties folder
+[Pp]roperties/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
