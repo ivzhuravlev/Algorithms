@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9.0)
-project(QuickFind)
+project(UnionFind)
 
-set(SOURCE ./tests.cpp ./QuickFind.cpp)
+set(SOURCE ./tests.cpp ./QuickFind.cpp ./QuickUnion.cpp)
 
-add_executable(QuickFind ${SOURCE})
+add_executable(UnionFind ${SOURCE})
