@@ -11,8 +11,8 @@ namespace UnionFind
 		public:
 			QuickFind(unsigned length);
 			
-			void makeUnion(unsigned a, unsigned b) override;
-			bool isConnected(unsigned a, unsigned b) const override;
+			virtual void makeUnion(unsigned a, unsigned b) override;
+			virtual bool isConnected(unsigned a, unsigned b) const override;
 			
 		private:
 			std::vector<unsigned> _arr;
