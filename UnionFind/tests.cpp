@@ -3,6 +3,7 @@
 #include "catch.hpp"
 #include "QuickFind.h"
 #include "QuickUnion.h"
+#include "QuickUnionWPC.h"
 
 using namespace UnionFind;
 
@@ -33,7 +34,31 @@ TEST_CASE("UnionFindDisjointSet with QuickFind realization", "[QuickFind]")
 TEST_CASE("UnionFindDisjointSet with QuickUnion realization", "[QuickUnion]")
 {
 	const unsigned N = 10;
-	QuickFind qu(10);
+	QuickUnion qu(10);
+	
+	qu.makeUnion(0, 5);
+	qu.makeUnion(5, 6);
+	qu.makeUnion(1, 2);
+	qu.makeUnion(3, 8);
+	qu.makeUnion(5, 6);
+	qu.makeUnion(1, 7);
+	qu.makeUnion(5, 6);
+	qu.makeUnion(4, 9);
+	qu.makeUnion(3, 4);
+	
+	CHECK(qu.isConnected(0, 6) == true);
+	CHECK(qu.isConnected(1, 7) == true);
+	CHECK(qu.isConnected(3, 9) == true);
+	
+	CHECK(qu.isConnected(0, 1) == false);
+	CHECK(qu.isConnected(2, 3) == false);
+	CHECK(qu.isConnected(7, 9) == false);
+}
+
+TEST_CASE("UnionFindDisjointSet with QuickUnionWPC realization", "[QuickUnionWPC]")
+{
+	const unsigned N = 10;
+	QuickUnionWPC qu(10);
 	
 	qu.makeUnion(0, 5);
 	qu.makeUnion(5, 6);

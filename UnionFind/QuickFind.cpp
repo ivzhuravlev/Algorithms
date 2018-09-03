@@ -21,7 +21,7 @@ void QuickFind::makeUnion(unsigned a, unsigned b)
 			i = indexNew;
 }
 
-bool QuickFind::isConnected(unsigned a, unsigned b) const
+bool QuickFind::isConnected(unsigned a, unsigned b)
 {
 	return _arr[a] == _arr[b];
 }

@@ -11,7 +11,7 @@ QuickUnion::QuickUnion(unsigned length)
 	}
 }
 
-unsigned QuickUnion::findRoot(unsigned i) const
+unsigned QuickUnion::findRoot(unsigned i)
 {
 	while(i != _arr[i])
 		i = _arr[i];
@@ -19,7 +19,7 @@ unsigned QuickUnion::findRoot(unsigned i) const
 	return i;
 }
 
-bool QuickUnion::isConnected(unsigned a, unsigned b) const
+bool QuickUnion::isConnected(unsigned a, unsigned b)
 {
 	return findRoot(a) == findRoot(b);
 }

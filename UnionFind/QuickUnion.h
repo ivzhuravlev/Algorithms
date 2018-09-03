@@ -11,10 +11,10 @@ namespace UnionFind
 		public:
 			QuickUnion(unsigned length);
 			virtual void makeUnion(unsigned a, unsigned b) override;
-			virtual bool isConnected(unsigned a, unsigned b) const override;
+			virtual bool isConnected(unsigned a, unsigned b) override;
 		
-		private:
-			unsigned findRoot(unsigned a) const;
+		protected:
+			virtual unsigned findRoot(unsigned i);
 			
 			std::vector<unsigned> _arr;
 	};
