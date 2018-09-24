@@ -1,12 +1,12 @@
 #pragma once
 
-#include "UnionFind.h"
+#include "UnionFindBase.h"
 
 #include <vector>
 
 namespace UnionFind
 {
-	class QuickFind : public UnionFind
+	class QuickFind : public UnionFindBase
 	{
 		public:
 			QuickFind(unsigned length);
