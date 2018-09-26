@@ -1,80 +1,28 @@
 #define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
-#include "QuickFind.h"
-#include "QuickUnion.h"
-#include "QuickUnionWPC.h"
+#include "UnionFind.h"
 
-using namespace UnionFind;
-
-TEST_CASE("UnionFindDisjointSet with QuickFind realization", "[QuickFind]")
+TEST_CASE("UnionFind", "[UnionFind]")
 {
 	const unsigned N = 10;
-	QuickFind qf(10);
+	UnionFind uf(N);
 	
-	qf.makeUnion(0, 5);
-	qf.makeUnion(5, 6);
-	qf.makeUnion(1, 2);
-	qf.makeUnion(3, 8);
-	qf.makeUnion(5, 6);
-	qf.makeUnion(1, 7);
-	qf.makeUnion(5, 6);
-	qf.makeUnion(4, 9);
-	qf.makeUnion(3, 4);
+	uf.makeUnion(0, 5);
+	uf.makeUnion(5, 6);
+	uf.makeUnion(1, 2);
+	uf.makeUnion(3, 8);
+	uf.makeUnion(5, 6);
+	uf.makeUnion(1, 7);
+	uf.makeUnion(5, 6);
+	uf.makeUnion(4, 9);
+	uf.makeUnion(3, 4);
 	
-	CHECK(qf.isConnected(0, 6) == true);
-	CHECK(qf.isConnected(1, 7) == true);
-	CHECK(qf.isConnected(3, 9) == true);
+	REQUIRE(uf.isConnected(0, 6) == true);
+	CHECK(uf.isConnected(1, 7) == true);
+	CHECK(uf.isConnected(3, 9) == true);
 	
-	CHECK(qf.isConnected(0, 1) == false);
-	CHECK(qf.isConnected(2, 3) == false);
-	CHECK(qf.isConnected(7, 9) == false);
-}
-
-TEST_CASE("UnionFindDisjointSet with QuickUnion realization", "[QuickUnion]")
-{
-	const unsigned N = 10;
-	QuickUnion qu(10);
-	
-	qu.makeUnion(0, 5);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(1, 2);
-	qu.makeUnion(3, 8);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(1, 7);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(4, 9);
-	qu.makeUnion(3, 4);
-	
-	CHECK(qu.isConnected(0, 6) == true);
-	CHECK(qu.isConnected(1, 7) == true);
-	CHECK(qu.isConnected(3, 9) == true);
-	
-	CHECK(qu.isConnected(0, 1) == false);
-	CHECK(qu.isConnected(2, 3) == false);
-	CHECK(qu.isConnected(7, 9) == false);
-}
-
-TEST_CASE("UnionFindDisjointSet with QuickUnionWPC realization", "[QuickUnionWPC]")
-{
-	const unsigned N = 10;
-	QuickUnionWPC qu(10);
-	
-	qu.makeUnion(0, 5);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(1, 2);
-	qu.makeUnion(3, 8);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(1, 7);
-	qu.makeUnion(5, 6);
-	qu.makeUnion(4, 9);
-	qu.makeUnion(3, 4);
-	
-	CHECK(qu.isConnected(0, 6) == true);
-	CHECK(qu.isConnected(1, 7) == true);
-	CHECK(qu.isConnected(3, 9) == true);
-	
-	CHECK(qu.isConnected(0, 1) == false);
-	CHECK(qu.isConnected(2, 3) == false);
-	CHECK(qu.isConnected(7, 9) == false);
+	CHECK(uf.isConnected(0, 1) == false);
+	CHECK(uf.isConnected(2, 3) == false);
+	CHECK(uf.isConnected(7, 9) == false);
 }
