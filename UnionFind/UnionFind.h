@@ -18,11 +18,17 @@ public:
 
 	bool isConnected(unsigned i, unsigned j)
 	{
+		if(!check(i, j))
+			return false;
+
 		return root(i - 1) == root(j - 1);
 	}
 
 	void makeUnion(unsigned i, unsigned j)
 	{
+		if(!check(i, j))
+			return;
+		
 		if (isConnected(i, j))
 			return;
 
@@ -42,6 +48,14 @@ public:
 	}
 
 private:
+	bool check(unsigned i, unsigned j)
+	{
+		if(i >= _parent.size() || j >= _parent.size())
+			return false;
+		else
+			return true;
+	}
+	
 	unsigned root(unsigned i)
 	{
 		while (i != _parent[i])
