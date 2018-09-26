@@ -50,7 +50,7 @@ public:
 private:
 	bool check(unsigned i, unsigned j)
 	{
-		if(i >= _parent.size() || j >= _parent.size())
+		if(i == 0 || i > _parent.size() || j == 0 || j > _parent.size())
 			return false;
 		else
 			return true;
