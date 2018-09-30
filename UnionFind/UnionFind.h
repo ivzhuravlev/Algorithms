@@ -6,7 +6,7 @@
 
 //! Union-find data structure
 /*! Class UnionFind represents union find disjoint set data structure.
- *  It is 1-based so its indices lies in a range [1, N], where N - is
+ *  It is 1-based so its indices lies in a range [1, N], where N - is a
  *	number sent into constructor. 
  *	This data structure uses size-based tree balancing and path compression.
  */
